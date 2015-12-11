@@ -3,7 +3,9 @@ module.exports = function (content, file, settings) {
 		return content;
 	}
 
-	if (!settings) {
+	settings.filename && delete settings.filename;
+
+	if (!Object.keys(settings).length) {
 		return fis.log.error("settings is required! ");
 	}
 
